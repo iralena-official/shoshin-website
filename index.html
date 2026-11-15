@@ -58,8 +58,13 @@ h1 .w{display:inline-block;animation:rise .7s cubic-bezier(.2,.7,.2,1) both;anim
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes pop{to{transform:scale(1)}}
 .lead{font:500 clamp(1.15rem,2.2vw,1.45rem)/1.45 var(--body);max-width:34ch}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:26px;animation:rise .6s ease both;animation-delay:1.2s}
+.btn.coral{background:var(--accent);color:#fff;font-size:1.2rem;padding:20px 30px}
+.btn .arr{display:inline-block;margin-left:.45em;transition:transform .25s}
+.btn:hover .arr{transform:translateX(5px)}
+.txtlink{font:700 1.1rem/1.3 var(--body);text-underline-offset:5px;padding:10px 0}
 .steps{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;list-style:none}
-.steps li{font:600 .95rem/1 var(--body);padding:12px 16px;border:1.5px solid var(--fg);border-radius:999px;animation:rise .6s ease both;animation-delay:calc(var(--i)*120ms + 1.4s)}
+.steps li{font:600 .95rem/1 var(--body);padding:12px 16px;border:1.5px solid var(--fg);border-radius:999px;animation:rise .6s ease both;animation-delay:calc(var(--i)*120ms + 1.6s)}
 
 /* Bedeutung */
 .meaning{padding:clamp(56px,10vh,110px) 0;border-top:1.5px solid var(--soft);flex-shrink:0}
@@ -72,22 +77,6 @@ h2{font:760 clamp(1.7rem,3.6vw,2.6rem)/1.1 var(--disp);letter-spacing:-.02em}
 .parts b{color:var(--accent);font-weight:700}
 .meaning p.say{font:500 1.15rem/1.55 var(--body);max-width:38ch}
 
-/* Kreis: jede Woche besser */
-.loop{border-top:1.5px solid var(--soft);flex-shrink:0}
-.pin{padding:clamp(56px,10vh,110px) 0}
-.loopgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"rings head" "rings list";grid-template-rows:auto auto;column-gap:clamp(24px,6vw,80px);row-gap:18px;align-content:center;align-items:center}
-.loopgrid h2{grid-area:head;align-self:end}
-.rings{grid-area:rings;position:relative;width:min(100%,460px);aspect-ratio:1;margin:0 auto}
-.rings svg{width:100%;height:100%;display:block;overflow:visible}
-.track{fill:none;stroke:var(--soft);stroke-width:2}
-.lap{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round;stroke-dasharray:1 2;stroke-dashoffset:0}
-.tip{fill:var(--fg)}
-.week{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
-.week span{font:600 11px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-.week b{font:800 clamp(2rem,5vw,3.2rem)/1 var(--disp)}
-.weeks{grid-area:list;align-self:start;list-style:none}
-.weeks li{padding:13px 0;border-top:1.5px solid var(--soft);font:500 1.15rem/1.4 var(--body)}
-.weeks li b{display:block;font:700 12px/1.3 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
 
 /* Status + Kontakt */
 .status{padding:clamp(56px,10vh,100px) 0;border-top:1.5px solid var(--soft);flex-shrink:0}
@@ -98,8 +87,6 @@ h2{font:760 clamp(1.7rem,3.6vw,2.6rem)/1.1 var(--disp);letter-spacing:-.02em}
 .btn.big{font-size:clamp(1.25rem,2.5vw,1.6rem);padding:clamp(24px,2.8vw,30px) clamp(32px,4.4vw,52px);background:var(--accent);color:#fff;animation:pulse 2.8s ease-out infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(219,80,56,.6)}70%,100%{box-shadow:0 0 0 20px rgba(219,80,56,0)}}
 .card .btn:focus-visible{outline-color:var(--card)}
-.btn.big .arr{display:inline-block;margin-left:.45em;transition:transform .25s}
-.btn.big:hover .arr{transform:translateX(5px)}
 .cta .li{display:inline-block;margin-top:14px;padding:8px 0;font:600 1rem/1.3 var(--body);color:var(--card);text-underline-offset:4px}
 .card .li:focus-visible{outline-color:var(--card)}
 .cta small{display:block;margin-top:16px;font:500 .95rem/1.3 var(--body);color:rgba(247,243,234,.72)}
@@ -119,12 +106,6 @@ details .legal p+p{margin-top:10px}
 .js .reveal.d2{transition-delay:.3s}
 .js .card.reveal{transform:translateY(22px) scale(.95)}
 .js .card.reveal.in{transform:none}
-.js .loop{height:300vh}
-.js .pin{position:sticky;top:0;height:100vh;height:100svh;padding:76px 0 24px;display:flex;align-items:center}
-.js .rings{width:min(100%,460px,62vh)}
-.js .weeks li{opacity:.3;transition:opacity .4s ease,transform .4s ease}
-.js .weeks li.done{opacity:.6}
-.js .weeks li.on{opacity:1;transform:translateX(8px)}
 
 @media (max-width:760px){
   .ds{display:none}
@@ -133,23 +114,15 @@ details .legal p+p{margin-top:10px}
   .thread.mob{display:block}
   .thread path{stroke-width:2.5}
   .meaning .grid{grid-template-columns:1fr}
-  .loopgrid{grid-template-columns:1fr;grid-template-areas:"head" "rings" "list";row-gap:14px}
-  .loopgrid h2{text-align:center}
-  .rings,.js .rings{width:min(62vw,34vh,300px)}
-  .weeks li{padding:8px 0;font-size:1rem}
-  .js .weeks li.on{transform:none}
   .card{flex-direction:column;align-items:stretch;text-align:left}
   .btn.big{display:block;text-align:center;white-space:nowrap;font-size:1.2rem;padding-left:18px;padding-right:18px}
-}
-@media (max-width:760px) and (max-height:640px){
-  .js .weeks li:not(.on){display:none}
 }
 @media (max-width:380px){
   .btn.sm{padding:11px 14px;font-size:.84rem}
   .btn.big{font-size:1.05rem}
 }
 @media (prefers-reduced-motion:reduce){
-  h1 .w,.steps li,.btn.big{animation:none}
+  h1 .w,.steps li,.btn.big,.hero-cta{animation:none}
   .thread path{animation:none;stroke-dashoffset:0}
   .thread circle{animation:none;transform:none}
 }
@@ -180,6 +153,10 @@ details .legal p+p{margin-top:10px}
       <circle cx="330" cy="58" r="8.5"/>
     </svg>
     <p class="lead">Wir bringen KI-Agenten in den Arbeitsalltag. Gemeinsam mit Ihrem Team.</p>
+    <div class="hero-cta">
+      <a class="btn coral" href="https://calendar.app.google/r86Wo5qs7NUtkwFu9" target="_blank" rel="noopener">Gespräch vereinbaren<span class="arr" aria-hidden="true">→</span></a>
+      <a class="txtlink" href="https://www.linkedin.com/in/ira-brunner-ab6208232" target="_blank" rel="noopener">LinkedIn<span aria-hidden="true"> ↗</span></a>
+    </div>
     <ul class="steps" aria-label="Was wir tun">
       <li style="--i:0">Potenzial finden</li>
       <li style="--i:1">Agenten aufbauen</li>
@@ -195,34 +172,6 @@ details .legal p+p{margin-top:10px}
       <h2 id="bedeutung" class="reveal">shoshin heißt Anfängergeist.</h2>
       <div class="parts reveal d1"><span><b>sho</b> · Anfang</span><span><b>shin</b> · Herz, Geist</span></div>
       <p class="say reveal d2">Jede Woche ein neuer Anfang. So werden Menschen und KI-Agenten gemeinsam besser.</p>
-    </div>
-  </div>
-</section>
-
-<section class="loop" data-loop aria-labelledby="kreis">
-  <div class="pin">
-    <div class="wrap loopgrid">
-      <h2 id="kreis">Jede Woche besser.</h2>
-      <div class="rings" aria-hidden="true">
-        <svg viewBox="0 0 400 400">
-          <circle class="track" cx="200" cy="200" r="70"/>
-          <circle class="track" cx="200" cy="200" r="105"/>
-          <circle class="track" cx="200" cy="200" r="140"/>
-          <circle class="track" cx="200" cy="200" r="175"/>
-          <circle class="lap" pathLength="1" cx="200" cy="200" r="70" transform="rotate(-90 200 200)"/>
-          <circle class="lap" pathLength="1" cx="200" cy="200" r="105" transform="rotate(-90 200 200)"/>
-          <circle class="lap" pathLength="1" cx="200" cy="200" r="140" transform="rotate(-90 200 200)"/>
-          <circle class="lap" pathLength="1" cx="200" cy="200" r="175" transform="rotate(-90 200 200)"/>
-          <circle class="tip" cx="200" cy="25" r="10"/>
-        </svg>
-        <div class="week"><span>Woche</span><b data-week>4</b></div>
-      </div>
-      <ol class="weeks">
-        <li data-step><b>Woche 1</b>Team und Agenten starten gemeinsam.</li>
-        <li data-step><b>Woche 2</b>Der beste Workflow zeigt sich.</li>
-        <li data-step><b>Woche 3</b>Er wird Standard für alle.</li>
-        <li data-step><b>Woche 4</b>Der Kreis beginnt neu. Eine Runde besser.</li>
-      </ol>
     </div>
   </div>
 </section>
@@ -273,13 +222,7 @@ details .legal p+p{margin-top:10px}
   var bar = document.querySelector(".progress");
   var meaning = document.querySelector(".meaning");
   var kanji = Array.prototype.slice.call(document.querySelectorAll(".kanji span"));
-  var loop = document.querySelector("[data-loop]");
-  var laps = Array.prototype.slice.call(document.querySelectorAll(".lap"));
-  var tip = document.querySelector(".tip");
-  var weekEl = document.querySelector("[data-week]");
-  var steps = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
-  var R = [70, 105, 140, 175];
-  var last = -1, ticking = false;
+  var ticking = false;
 
   function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
 
@@ -298,32 +241,6 @@ details .legal p+p{margin-top:10px}
       kanji[0].style.transform = "translateX(" + (-(1 - e) * 44) + "px)";
       kanji[1].style.transform = "translateX(" + ((1 - e) * 44) + "px)";
       kanji[0].style.opacity = kanji[1].style.opacity = e;
-    }
-
-    // Kreis: jede Runde eine Woche, jede Runde ein Ring mehr
-    if (loop && laps.length === 4) {
-      var r = loop.getBoundingClientRect();
-      var span = r.height - vh;
-      var p = span > 0 ? clamp(-r.top / span) : 0;
-      var t = Math.min(4, (p / 0.88) * 4);
-      var a = Math.min(3, Math.floor(t));
-      for (var i = 0; i < 4; i++) {
-        var fill = clamp(t - i);
-        laps[i].style.strokeDashoffset = 1 - fill;
-        laps[i].style.opacity = fill > 0.002 ? 1 : 0;
-      }
-      var f = t >= 4 ? 1 : t - a;
-      var ang = f * 2 * Math.PI - Math.PI / 2;
-      tip.setAttribute("cx", (200 + R[a] * Math.cos(ang)).toFixed(2));
-      tip.setAttribute("cy", (200 + R[a] * Math.sin(ang)).toFixed(2));
-      if (a !== last) {
-        last = a;
-        weekEl.textContent = a + 1;
-        for (var k = 0; k < steps.length; k++) {
-          steps[k].classList.toggle("on", k === a);
-          steps[k].classList.toggle("done", k < a);
-        }
-      }
     }
   }
 
