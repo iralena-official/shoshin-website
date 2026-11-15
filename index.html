@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>shoshin AI Studio · We transform how agents and teams work together</title>
+<meta name="description" content="shoshin AI Studio bringt KI-Agenten in den Arbeitsalltag, gemeinsam mit Ihrem Team. Gegründet von Ira Lena Brunner.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="shoshin AI Studio">
+<meta property="og:description" content="We transform how agents and teams work together.">
+<meta property="og:image" content="https://iralena.com/og.png">
+<meta property="og:url" content="https://iralena.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#E4DFD3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%231B2A57'/%3E%3Cpath d='M34.04 20.98A14.07 14.07 0 1 1 31.09 11.34' fill='none' stroke='%23F7F3EA' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='20' cy='20' r='4.6' fill='%23DB5038'/%3E%3C/svg%3E">
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url("fonts/BricolageGrotesque.ttf") format("truetype");font-weight:200 800;font-stretch:75% 100%;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url("fonts/HankenGrotesk.ttf") format("truetype");font-weight:100 900;font-display:swap}
+:root{
+  --bg:#E4DFD3;--card:#F7F3EA;--fg:#1B2A57;--muted:#545B72;--accent:#DB5038;--soft:#D7D0C1;
+  --disp:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Hanken Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --jp:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP","Noto Serif CJK JP",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--body);min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 clamp(16px,5vw,56px)}
+
+/* Wortmarke: das o ist der offene Kreis mit Punkt */
+.top{padding:28px 0}
+.logo{display:inline-flex;align-items:baseline;gap:12px;text-decoration:none}
+.wm{font:800 30px/1 var(--disp);letter-spacing:-.01em;white-space:nowrap}
+.wm svg{width:.62em;height:.62em;margin:0 .02em;vertical-align:-.046em}
+.wm .ring{fill:none;stroke:currentColor;stroke-width:8.26;stroke-linecap:round}
+.wm .dot{fill:var(--accent)}
+.ds{font:600 11px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* Hero */
+.hero{flex:1;display:flex;flex-direction:column;justify-content:center;padding:4vh 0 6vh}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+h1{font:760 clamp(2.4rem,7.2vw,5.6rem)/1.02 var(--disp);letter-spacing:-.025em;max-width:16.5ch}
+.thread{display:block;width:100%;height:auto;margin:clamp(20px,4vh,40px) 0 clamp(18px,3vh,32px);overflow:visible}
+.thread path{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s cubic-bezier(.6,.05,.3,1) .35s forwards}
+.thread circle{fill:var(--fg);transform-box:fill-box;transform-origin:center;transform:scale(0);animation:pop .5s cubic-bezier(.3,1.6,.5,1) 2.55s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{transform:scale(1)}}
+.lead{font:500 clamp(1.15rem,2.2vw,1.45rem)/1.45 var(--body);max-width:34ch}
+.steps{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;list-style:none}
+.steps li{font:600 .95rem/1 var(--body);padding:12px 16px;border:1.5px solid var(--fg);border-radius:999px}
+
+/* Bedeutung */
+.meaning{padding:clamp(56px,10vh,110px) 0;border-top:1.5px solid var(--soft)}
+.meaning .grid{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,6vw,80px);align-items:center}
+.kanji{font:600 clamp(4.5rem,13vw,9.5rem)/1 var(--jp);letter-spacing:.04em;color:var(--fg)}
+.kanji span{display:inline-block}
+.meaning h2{font:760 clamp(1.7rem,3.6vw,2.6rem)/1.1 var(--disp);letter-spacing:-.02em;margin-bottom:14px}
+.parts{display:flex;flex-wrap:wrap;gap:8px 28px;font:500 1.05rem/1.4 var(--body);margin-bottom:16px}
+.parts b{color:var(--accent);font-weight:700}
+.meaning p.say{font:500 1.15rem/1.55 var(--body);max-width:40ch}
+
+/* Status + Kontakt */
+.status{padding:0 0 clamp(56px,10vh,100px)}
+.card{background:var(--card);border-radius:22px;padding:clamp(24px,4vw,44px);display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+.card p{font:500 1.15rem/1.5 var(--body);max-width:36ch}
+.card p strong{font-family:var(--disp);font-weight:760}
+.btn{display:inline-block;font:700 1rem/1 var(--body);background:var(--fg);color:var(--card);text-decoration:none;padding:17px 26px;border-radius:999px;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* Fuß */
+footer{border-top:1.5px solid var(--soft);padding:28px 0 40px;font-size:.92rem;color:var(--muted)}
+footer .row{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+details{margin-top:18px}
+summary{cursor:pointer;font-weight:600;color:var(--fg);display:inline-block}
+details .legal{margin-top:12px;max-width:70ch;line-height:1.6}
+details .legal p+p{margin-top:10px}
+
+/* Einblenden beim Scrollen */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+.kanji span{opacity:0;transform:translateY(14px) scale(.96);transition:opacity .8s ease,transform .8s ease}
+.in .kanji span{opacity:1;transform:none}
+.in .kanji span+span{transition-delay:.35s}
+
+@media (max-width:640px){
+  .meaning .grid{grid-template-columns:1fr}
+  .wm{font-size:26px}
+}
+@media (prefers-reduced-motion:reduce){
+  .thread path{animation:none;stroke-dashoffset:0}
+  .thread circle{animation:none;transform:none}
+  .reveal,.kanji span{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="shoshin AI Studio, Startseite">
+      <span class="wm">sh<svg viewBox="0 0 40 40" aria-hidden="true"><path class="ring" d="M34.04 20.98A14.07 14.07 0 1 1 31.09 11.34"/><circle class="dot" cx="20" cy="20" r="4.84"/></svg>shin</span>
+      <span class="ds">AI Studio</span>
+    </a>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="wrap">
+    <h1>We transform how agents and teams work together.</h1>
+    <svg class="thread" viewBox="0 0 1200 160" aria-hidden="true">
+      <path pathLength="1" d="M0 140H1040A60 60 0 1 1 1070 131.96"/>
+      <circle cx="1040" cy="80" r="13"/>
+    </svg>
+    <p class="lead">Wir bringen KI-Agenten in den Arbeitsalltag. Gemeinsam mit Ihrem Team.</p>
+    <ul class="steps" aria-label="Was wir tun">
+      <li>Potenzial finden</li>
+      <li>Agenten aufbauen</li>
+      <li>Teams befähigen</li>
+    </ul>
+  </div>
+</main>
+
+<section class="meaning" aria-labelledby="bedeutung">
+  <div class="wrap grid reveal">
+    <div class="kanji" lang="ja" aria-label="初心, shoshin"><span>初</span><span>心</span></div>
+    <div>
+      <h2 id="bedeutung">shoshin heißt Anfängergeist.</h2>
+      <div class="parts"><span><b>sho</b> · Anfang</span><span><b>shin</b> · Herz, Geist</span></div>
+      <p class="say">Offen bleiben. Jede Woche dazulernen. Lernen ist für uns keine Linie, sondern ein Kreis.</p>
+    </div>
+  </div>
+</section>
+
+<section class="status" aria-label="Kontakt">
+  <div class="wrap">
+    <div class="card reveal">
+      <p><strong>Unsere Website entsteht gerade.</strong><br>Lernen Sie uns schon jetzt kennen.</p>
+      <a class="btn" href="https://calendar.app.google/r86Wo5qs7NUtkwFu9" target="_blank" rel="noopener">Gespräch vereinbaren</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <span>© 2026 shoshin AI Studio · Ira Lena Brunner</span>
+      <a href="mailto:contact@iralena.com">contact@iralena.com</a>
+    </div>
+    <details id="impressum">
+      <summary>Impressum</summary>
+      <div class="legal">
+        <p>Ira Lena Brunner, Einzelunternehmerin<br>Geschäftsbezeichnung: shoshin AI Studio<br>Aubergstraße 1b, 4490 Sankt Florian, Österreich<br>E-Mail: <a href="mailto:contact@iralena.com">contact@iralena.com</a></p>
+        <p>Unternehmensgegenstand: Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik<br>Gewerbebehörde: Bezirkshauptmannschaft Linz-Land<br>Mitglied der Wirtschaftskammer Oberösterreich<br>Anwendbare Rechtsvorschriften: Gewerbeordnung, abrufbar unter <a href="https://www.ris.bka.gv.at">www.ris.bka.gv.at</a></p>
+        <p>Offenlegung gemäß § 25 Mediengesetz: Medieninhaberin ist Ira Lena Brunner. Diese Website informiert über die Leistungen von shoshin AI Studio.</p>
+      </div>
+    </details>
+    <details id="datenschutz">
+      <summary>Datenschutz</summary>
+      <div class="legal">
+        <p>Diese Website setzt keine Cookies, nutzt kein Tracking und lädt keine Inhalte von Drittanbietern. Die Schriften liegen auf diesem Server.</p>
+        <p>Die Seite wird bei GitHub Pages (GitHub, Inc., USA) gehostet. Beim Aufruf verarbeitet GitHub technisch notwendige Daten wie Ihre IP-Adresse, um die Seite auszuliefern und abzusichern (Art. 6 Abs. 1 lit. f DSGVO).</p>
+        <p>Termine vergeben wir über Google Kalender (Google Ireland Limited). Wenn Sie dort einen Termin buchen, gelten zusätzlich die Datenschutzhinweise von Google. Ihre Angaben verwenden wir nur, um das Gespräch vorzubereiten und durchzuführen.</p>
+        <p>Wenn Sie uns eine E-Mail schreiben, verwenden wir Ihre Angaben nur, um Ihre Anfrage zu beantworten. Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch und Datenübertragbarkeit sowie auf Beschwerde bei der Datenschutzbehörde (<a href="https://www.dsb.gv.at">dsb.gv.at</a>). Verantwortlich: Ira Lena Brunner, Kontakt wie im Impressum.</p>
+      </div>
+    </details>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var els = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+  }, { threshold: 0.25 });
+  els.forEach(function (e) { io.observe(e); });
+})();
+</script>
+</body>
+</html>
